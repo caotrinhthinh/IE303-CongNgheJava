@@ -11,11 +11,13 @@ public class Pipe {
 
     // Scoring flag
     boolean passed = false;
+    boolean isTop;  // true = top pipe, false = bottom pipe
 
     // Speed (pixels per frame)
     static final int SPEED = 4;
 
     public Pipe(int x, int y, boolean isTop) {
+        this.isTop = isTop;
         String assetName = isTop ? "assets/toppipe.png" : "assets/bottompipe.png";
         img = new ImageIcon(getClass().getResource(assetName)).getImage();
         width = img.getWidth(null);
