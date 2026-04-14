@@ -2,6 +2,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Bird {
+    private static final int TARGET_WIDTH = 34;
+    private static final int TARGET_HEIGHT = 24;
+
     // Position & size
     int x, y;
     int width, height;
@@ -15,9 +18,10 @@ public class Bird {
     Image img;
 
     public Bird(int startX, int startY) {
-        img = new ImageIcon(getClass().getResource("assets/flappybird.png")).getImage();
-        width = img.getWidth(null);
-        height = img.getHeight(null);
+        Image original = new ImageIcon(getClass().getResource("assets/flappybird.png")).getImage();
+        img = original.getScaledInstance(TARGET_WIDTH, TARGET_HEIGHT, Image.SCALE_SMOOTH);
+        width = TARGET_WIDTH;
+        height = TARGET_HEIGHT;
         x = startX - width / 2;
         y = startY - height / 2;
     }
